@@ -49,5 +49,13 @@
         desc = "Open/Close Neotree";
       };
     }
+    {
+      mode = [ "n" ];
+      key = "\\";
+      action = "<cmd>Neotree reveal<cr>";
+      options = {
+        desc = "Open/Close Neotree";
+      };
+    }
   ];
 }
