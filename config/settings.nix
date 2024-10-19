@@ -7,6 +7,10 @@
         vim.fn.sign_define("diagnosticsignwarn", { text = " ", texthl = "diagnosticwarn", linehl = "", numhl = "" })
         vim.fn.sign_define("diagnosticsignhint", { text = "󰌵", texthl = "diagnostichint", linehl = "", numhl = "" })
         vim.fn.sign_define("diagnosticsigninfo", { text = " ", texthl = "diagnosticinfo", linehl = "", numhl = "" })
+
+        -- Keep selection after indenting
+        vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
       '';
 
     clipboard = {
@@ -28,7 +32,7 @@
       softtabstop = 2;
 
       # Show tabline always
-      showtabline = 2;
+      showtabline = 1;
 
       # Use spaces instead of tabs
       expandtab = true;
