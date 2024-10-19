@@ -1,5 +1,5 @@
 {
-  description = "Hier0nim NeoVim configuration";
+  description = "Hier0nim NixVim configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -55,12 +55,19 @@
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = builtins.attrValues (import ./overlays);
+            config.allowUnfree = true;
+          };
+
           checks = {
+            # Run `nix flake check .` to verify that your config is not broken
             default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
           };
 
           packages = {
-            inherit nvim;
+            # Lets you run `nix run .` to start nixvim
             default = nvim;
           };
 
