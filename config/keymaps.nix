@@ -442,51 +442,26 @@
       };
     }
     {
-      mode = "n";
-      key = "<leader><tab>l";
-      action = "<cmd>tablast<cr>";
+      mode = [
+        "n"
+      ];
+      key = "<leader>cf";
+      action = "<CMD>lua require(\"conform\").format({ lsp_fallback = true })<CR>";
       options = {
-        desc = "Last Tab";
+        desc = "Format buffer";
+        remap = true;
       };
     }
     {
-      mode = "n";
-      key = "<leader><tab>f";
-      action = "<cmd>tabfirst<cr>";
+      mode = [
+        "n"
+        "v"
+      ];
+      key = "<leader>cF";
+      action = "<CMD>lua require(\"conform\").format({ formatters = { \"injected\" }, timeout_ms = 3000 })<CR>";
       options = {
-        desc = "First Tab";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab><tab>";
-      action = "<cmd>tabnew<cr>";
-      options = {
-        desc = "New Tab";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>]";
-      action = "<cmd>tabnext<cr>";
-      options = {
-        desc = "Next Tab";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>d";
-      action = "<cmd>tabclose<cr>";
-      options = {
-        desc = "Close Tab";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>[";
-      action = "<cmd>tabprevious<cr>";
-      options = {
-        desc = "Previous Tab";
+        desc = "Format injected langs";
+        remap = true;
       };
     }
   ];
