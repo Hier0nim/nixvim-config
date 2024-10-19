@@ -41,7 +41,7 @@
       "<leader>b" = {
         action = "buffers";
         options = {
-          desc = "+buffer";
+          desc = "+Buffer";
         };
       };
       "<leader>ff" = {
@@ -50,7 +50,7 @@
           desc = "Find project files";
         };
       };
-      "<leader>fr" = {
+      "<leader>fg" = {
         action = "live_grep";
         options = {
           desc = "Find text";
@@ -62,7 +62,7 @@
           desc = "Resume";
         };
       };
-      "<leader>fg" = {
+      "<leader>fr" = {
         action = "oldfiles";
         options = {
           desc = "Recent";

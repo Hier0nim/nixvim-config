@@ -44,12 +44,12 @@
           [
             "󰍉 Find Word"
             "Telescope live_grep"
-            "fr"
+            "fg"
           ]
           [
             " Recent Files"
             "Telescope oldfiles"
-            "fg"
+            "fr"
           ]
           [
             " File Browser"
