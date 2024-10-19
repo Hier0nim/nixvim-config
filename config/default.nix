@@ -42,14 +42,14 @@ _: {
     # Git
     ./plugins/git/lazygit.nix
     ./plugins/git/gitsigns.nix
+    # ./plugins/git/gitblame.nix
 
     # Utils
     ./plugins/utils/telescope.nix
     ./plugins/utils/whichkey.nix
-    ./plugins/utils/extra_plugins.nix
+    ./plugins/utils/web-devicons.nix
     ./plugins/utils/mini.nix
     ./plugins/utils/markdown-preview.nix
     ./plugins/utils/obsidian.nix
-    ./plugins/utils/toggleterm.nix
   ];
 }
