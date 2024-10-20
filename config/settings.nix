@@ -91,6 +91,12 @@
       # Hide command line unless needed
       cmdheight = 0;
 
+      # Make search case-insensitive by default
+      ignorecase = true;
+
+      # Make searches be case-sensitive when using uppercase letters
+      smartcase = true;
+
       # Remove EOB
       fillchars = {
         eob = " ";

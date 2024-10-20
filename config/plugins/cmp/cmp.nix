@@ -141,59 +141,78 @@
     };
   };
   extraConfigLua = ''
-        luasnip = require("luasnip")
-        kind_icons = {
-          Text = "󰊄",
-          Method = " ",
-          Function = "󰡱 ",
-          Constructor = " ",
-          Field = " ",
-          Variable = "󱀍 ",
-          Class = " ",
-          Interface = " ",
-          Module = "󰕳 ",
-          Property = " ",
-          Unit = " ",
-          Value = " ",
-          Enum = " ",
-          Keyword = " ",
-          Snippet = " ",
-          Color = " ",
-          File = "",
-          Reference = " ",
-          Folder = " ",
-          EnumMember = " ",
-          Constant = " ",
-          Struct = " ",
-          Event = " ",
-          Operator = " ",
-          TypeParameter = " ",
-        } 
+    luasnip = require("luasnip")
+    kind_icons = {
+    	Text = "󰊄",
+    	Method = " ",
+    	Function = "󰡱 ",
+    	Constructor = " ",
+    	Field = " ",
+    	Variable = "󱀍 ",
+    	Class = " ",
+    	Interface = " ",
+    	Module = "󰕳 ",
+    	Property = " ",
+    	Unit = " ",
+    	Value = " ",
+    	Enum = " ",
+    	Keyword = " ",
+    	Snippet = " ",
+    	Color = " ",
+    	File = "",
+    	Reference = " ",
+    	Folder = " ",
+    	EnumMember = " ",
+    	Constant = " ",
+    	Struct = " ",
+    	Event = " ",
+    	Operator = " ",
+    	TypeParameter = " ",
+    }
 
-         local cmp = require'cmp'
+    local cmp = require("cmp")
 
-     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-     cmp.setup.cmdline({'/', "?" }, {
-       sources = {
-         { name = 'buffer' }
-       }
-     })
+    -- Based on https://github.com/hrsh7th/cmp-cmdline/issues/108#issuecomment-2052449375
+    -- C-n/C-p cycle through completions if a character has been typed and through
+    -- command history if not (from https://www.reddit.com/r/neovim/comments/v5pfmy/comment/ibb61w3/)
+    local cmd_mapping = {
+      ["<C-Space>"] = { c = cmp.mapping.complete({}) },
+      ["<C-n>"] = { c = cmp.mapping.select_next_item() },
+      ["<C-p>"] = { c = cmp.mapping.select_prev_item() },
+      ["<C-e>"] = { c = cmp.mapping.abort() },
+      ["<C-y>"] = {
+        c = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Insert,
+          select = true,
+        }),
+      },
+    }
 
     -- Set configuration for specific filetype.
-     cmp.setup.filetype('gitcommit', {
-       sources = cmp.config.sources({
-         { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-       }, {
-         { name = 'buffer' },
-       })
-     })
+    cmp.setup.filetype("gitcommit", {
+    	sources = cmp.config.sources({
+    		{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+    	}, {
+    		{ name = "buffer" },
+    	}),
+    })
 
-     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-     cmp.setup.cmdline(':', {
-       sources = cmp.config.sources({
-         { name = 'path' }
-       }, {
-         { name = 'cmdline' }
-       }),
-     })  '';
+    -- Use buffer source for `/` and `?`
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmd_mapping,
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    -- Use cmdline & path source for ':'
+    cmp.setup.cmdline(":", {
+      mapping = cmd_mapping,
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+    })
+  '';
 }
