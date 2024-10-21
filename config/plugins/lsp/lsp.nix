@@ -40,6 +40,9 @@
         jsonls = {
           enable = true;
         };
+        nushell = {
+          enable = true;
+        };
         yamlls = {
           enable = true;
           extraOptions = {

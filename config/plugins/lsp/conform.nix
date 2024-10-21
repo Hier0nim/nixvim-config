@@ -128,6 +128,7 @@
             "shfmt"
           ];
           json = [ "jq" ];
+          nu = [ "nufmt" ];
           "_" = [ "trim_whitespace" ];
         };
 
@@ -166,6 +167,9 @@
           };
           bicep = {
             command = "${lib.getExe pkgs.bicep}";
+          };
+          nufmt = {
+            command = "${lib.getExe' pkgs.nufmt "nufmt"}";
           };
           #yamlfmt = {
           #  command = "${lib.getExe pkgs.yamlfmt}";
