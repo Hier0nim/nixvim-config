@@ -63,7 +63,7 @@
           ]
           [
             "󰧑 SecondBrain"
-            "edit ~/projects/personal/SecondBrain"
+            "edit ~/Projects/Personal/SecondBrain"
             "sb"
           ]
         ];
