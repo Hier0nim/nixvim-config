@@ -5,7 +5,7 @@
       workspaces = [
         {
           name = "SecondBrain";
-          path = "~/projects/personal/SecondBrain";
+          path = "~/Projects/Personal/SecondBrain";
         }
       ];
       templates = {
