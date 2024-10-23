@@ -49,7 +49,7 @@ _: {
     ./plugins/utils/whichkey.nix
     ./plugins/utils/web-devicons.nix
     ./plugins/utils/mini.nix
-    ./plugins/utils/markdown-preview.nix
+    ./plugins/utils/markdown.nix
     ./plugins/utils/obsidian.nix
   ];
 }

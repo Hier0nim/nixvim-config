@@ -14,6 +14,9 @@ _: {
         theme = "dark";
       };
     };
+    render-markdown = {
+      enable = true;
+    };
   };
 
   keymaps = [
@@ -25,5 +28,19 @@ _: {
         desc = "Toggle Markdown Preview";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>mr";
+      action = "<cmd>RenderMarkdown toggle<cr>";
+      options = {
+        desc = "Toggle Render Markdown";
+      };
+    }
   ];
+
+  extraConfigLua = ''
+    require("render-markdown").setup({
+    	bullet = { right_pad = 2 },
+    })
+  '';
 }
