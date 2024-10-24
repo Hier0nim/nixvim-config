@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
   outputs =
@@ -12,6 +13,7 @@
       nixvim,
       nixpkgs,
       flake-parts,
+      neorg,
       ...
     }@inputs:
     let
@@ -57,7 +59,11 @@
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays = builtins.attrValues (import ./overlays);
+            overlays = [
+              builtins.attrValues
+              (import ./overlays)
+              neorg.overlays.default
+            ];
             config.allowUnfree = true;
           };
 
