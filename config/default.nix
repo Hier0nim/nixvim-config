@@ -50,6 +50,7 @@ _: {
     ./plugins/utils/web-devicons.nix
     ./plugins/utils/mini.nix
     ./plugins/utils/markdown.nix
+    ./plugins/utils/auto-session.nix
 
     # Neorg
     ./plugins/neorg/neorg.nix
