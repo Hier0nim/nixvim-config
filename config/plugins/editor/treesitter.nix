@@ -10,6 +10,8 @@
     nixvimInjections = true;
     grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars ++ [
       pkgs.tree-sitter-grammars.tree-sitter-nu
+      pkgs.tree-sitter-grammars.tree-sitter-norg
+      pkgs.tree-sitter-grammars.tree-sitter-norg-meta
     ];
   };
 
