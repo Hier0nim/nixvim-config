@@ -34,6 +34,13 @@
           ];
         }
         {
+          __unkeyed = "<leader>n";
+          group = "Neorg";
+          mode = [
+            "n"
+          ];
+        }
+        {
           __unkeyed = "<leader>q";
           group = "Session";
           mode = [

@@ -50,7 +50,10 @@ _: {
     ./plugins/utils/web-devicons.nix
     ./plugins/utils/mini.nix
     ./plugins/utils/markdown.nix
-    # ./plugins/utils/obsidian.nix
-    ./plugins/utils/neorg.nix
+
+    # Neorg
+    ./plugins/neorg/neorg.nix
+    ./plugins/neorg/image.nix
+    ./plugins/neorg/nabla.nix
   ];
 }
