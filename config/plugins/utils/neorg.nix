@@ -16,11 +16,9 @@
       };
       "core.dirman" = {
         config = {
-          default_workspace = "notes";
+          default_workspace = "SecondBrain";
           workspaces = {
-            notes = "~/Projects/Personal/SecondBrain/notes";
-            university = "~/Projects/Personal/SecondBrain/university";
-            work = "~/Projects/Personal/SecondBrain/work";
+            SecondBrain = "~/SecondBrain";
           };
         };
       };
