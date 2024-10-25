@@ -19,28 +19,31 @@ _: {
     };
   };
 
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>mp";
-      action = "<cmd>MarkdownPreview<cr>";
-      options = {
-        desc = "Toggle Markdown Preview";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>mr";
-      action = "<cmd>RenderMarkdown toggle<cr>";
-      options = {
-        desc = "Toggle Render Markdown";
-      };
-    }
-  ];
-
   extraConfigLua = ''
+    -- Setup render-markdown plugin
     require("render-markdown").setup({
     	bullet = { right_pad = 2 },
+    })
+
+    -- Add keymaps only for markdown files
+    vim.api.nvim_create_autocmd("FileType", {
+    	pattern = "markdown",
+    	callback = function()
+    		vim.api.nvim_buf_set_keymap(
+    			0,
+    			"n",
+    			"<leader>mp",
+    			"<cmd>MarkdownPreview<cr>",
+    			{ desc = "Toggle Markdown Preview", noremap = true, silent = true }
+    		)
+    		vim.api.nvim_buf_set_keymap(
+    			0,
+    			"n",
+    			"<leader>mr",
+    			"<cmd>RenderMarkdown toggle<cr>",
+    			{ desc = "Toggle Render Markdown", noremap = true, silent = true }
+    		)
+    	end,
     })
   '';
 }
