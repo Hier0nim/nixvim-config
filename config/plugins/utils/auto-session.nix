@@ -2,12 +2,14 @@
   plugins = {
     auto-session = {
       enable = true;
-      autoRestore.enabled = false;
-      autoSession.suppressDirs = [
-        "~/"
-        "~/Downloads"
-        "~/Documents"
-      ];
+      settings = {
+        autoRestore = true;
+        autoSession.suppressDirs = [
+          "~/"
+          "~/Downloads"
+          "~/Documents"
+        ];
+      };
     };
   };
   keymaps = [
