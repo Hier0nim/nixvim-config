@@ -17,8 +17,8 @@
   extraConfigLua =
     #lua
     ''
-      require('roslyn').setup {
-        exe = 'Microsoft.CodeAnalysis.LanguageServer'
-      }
+      require("roslyn").setup({
+      	exe = "Microsoft.CodeAnalysis.LanguageServer",
+      })
     '';
 }
