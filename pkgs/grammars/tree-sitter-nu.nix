@@ -1,8 +1,8 @@
 {
   fetchFromGitHub,
-  buildGrammar,
+  pkgs,
 }:
-buildGrammar {
+pkgs.tree-sitter.buildGrammar {
   language = "nu";
   version = "0.0.0+0bb9a60";
   src = fetchFromGitHub {

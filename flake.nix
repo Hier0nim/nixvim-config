@@ -40,6 +40,7 @@
 
       perSystem =
         {
+          pkgs,
           system,
           config,
           ...
@@ -48,22 +49,15 @@
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
-            pkgs = mkPkgs system;
+            inherit pkgs;
             module = import ./config;
-            extraSpecialArgs =
-              {
-              };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
           _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays = [
-              builtins.attrValues
-              (import ./overlays)
-              neorg.overlays.default
-            ];
+            overlays = builtins.attrValues (import ./overlays);
             config.allowUnfree = true;
           };
 
@@ -75,10 +69,6 @@
           packages = {
             # Lets you run `nix run .` to start nixvim
             default = nvim;
-          };
-
-          overlayAttrs = {
-            inherit (config.packages) jeezyvim;
           };
         };
     };

@@ -1,6 +1,9 @@
 { ... }:
 {
-  imports = [ ./roslyn.nix ];
+  imports = [
+    ./roslyn.nix
+    ./r.nix
+  ];
 
   plugins = {
     lsp-lines = {

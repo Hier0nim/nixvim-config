@@ -54,7 +54,7 @@ _: {
 
     # Neorg
     ./plugins/neorg/neorg.nix
-    ./plugins/neorg/image.nix
+    # ./plugins/neorg/image.nix
     ./plugins/neorg/nabla.nix
   ];
 }
