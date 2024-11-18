@@ -51,6 +51,7 @@ _: {
     ./plugins/utils/mini.nix
     ./plugins/utils/markdown.nix
     ./plugins/utils/auto-session.nix
+    ./plugins/utils/log-highlight.nix
 
     # Neorg
     ./plugins/neorg/neorg.nix
