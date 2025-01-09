@@ -4,7 +4,6 @@
 }:
 {
   vimPlugins = prev.vimPlugins // {
-    roslyn-nvim = pkgs.callPackage ./plugins/roslyn-nvim.nix { };
     nabla-nvim = pkgs.callPackage ./plugins/nabla-nvim.nix { };
     r-nvim = pkgs.callPackage ./plugins/r-nvim.nix { };
     cmp-r = pkgs.callPackage ./plugins/cmp-r.nix { };

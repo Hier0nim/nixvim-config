@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-    ./roslyn.nix
-    ./r.nix
+    # ./roslyn.nix
+    # ./r.nix
   ];
 
   plugins = {
